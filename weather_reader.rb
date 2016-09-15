@@ -25,11 +25,12 @@ class WeatherReader
           location = first_entity_value(entities, 'location')
 
           if location
-            forecast = `./weather.sh #{location}`
-            if forecast.empty?
+            # forecast = `./weather.sh #{location}`
+            # if forecast.empty?
+            if location
               context['unknownLocation'] = true
             else
-              context['forecast'] = forecast
+              context['forecast'] = 'sunny'
             end
           else
             context['missingLocation'] = true
