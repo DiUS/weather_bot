@@ -1,7 +1,12 @@
 require 'sinatra'
 require 'json'
+require 'weather_reader'
 
 post '/gateway' do
+  weather_bot = WeatherReader.new
+  message = params[:text].gsub(params[:trigger_word], '').strip
+  result = weather_bot.process_command(message)
+
   content_type :json
-  { text: 'hello world!!!' }.to_json
+  { text: result }.to_json
 end
