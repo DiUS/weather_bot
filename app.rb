@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-require 'weather_reader'
+require_relative 'weather_reader'
 
 post '/gateway' do
   weather_bot = WeatherReader.new
