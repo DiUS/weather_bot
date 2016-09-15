@@ -7,8 +7,10 @@ class WeatherReader
   end
 
   def process_command(message)
-    puts  @client.converse(SecureRandom.uuid, message).inspect
-    @client.converse(SecureRandom.uuid, message)['msg']
+    response = @client.run_actions(SecureRandom.uuid, message)
+    puts '----- response:'
+    puts response
+    response
   end
 
   private
